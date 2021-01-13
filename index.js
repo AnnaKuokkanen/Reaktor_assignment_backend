@@ -2,30 +2,21 @@ const express = require('express')
 const app = express()
 const axios = require('axios')
 
-app.get('/api/beanies', (req, res) => {
-  const beanies = 
+app.get('/api/products/:category', (req, res) => {
+  const category = req.params.category;
   axios
-    .get('https://bad-api-assignment.reaktor.com/v2/products/beanies')
+    .get(`https://bad-api-assignment.reaktor.com/v2/products/${category}`)
     .then(response => {
-      res.send(response.data)
+      res.send(response.data);
     })
 })
 
-app.get('/api/facemasks', (req, res) => {
-  const facemasks = 
+app.get('/api/availability/:manufacturer', (req, res) => {
+  const manufacturer = req.params.manufacturer;
   axios
-    .get('https://bad-api-assignment.reaktor.com/v2/products/facemasks')
+    .get(`https://bad-api-assignment.reaktor.com/v2/availability/${manufacturer}`)
     .then(response => {
-      res.send(response.data)
-    })
-})
-
-app.get('/api/gloves', (req, res) => {
-  const gloves = 
-  axios
-    .get('https://bad-api-assignment.reaktor.com/v2/products/gloves')
-    .then(response => {
-      res.send(response.data)
+      res.send(response.data);
     })
 })
 

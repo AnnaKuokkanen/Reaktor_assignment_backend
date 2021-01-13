@@ -43,6 +43,14 @@ app.get('/api/beanies', (req, res) => {
   res.json(beanies)
 })
 
+app.get('/api/facemasks', (req, res) => {
+  res.send('<h1>Facemasks</h1>')
+})
+
+app.get('/api/gloves', (req, res) => {
+  res.send('<h1>Gloves</h1>')
+})
+
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

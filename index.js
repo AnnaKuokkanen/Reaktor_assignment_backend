@@ -1,54 +1,32 @@
 const express = require('express')
 const app = express()
-
-const beanies = [
-  {
-    id: "6a40511dc47b94db523e3fb4",
-    type: "beanies",
-    name: "AKNYVE BOON",
-    color: [
-    "green",
-    "black"
-    ],
-    price: 63,
-    manufacturer: "niksleh"
-    },
-    {
-    id: "498517b6e69ff38604074ade",
-    type: "beanies",
-    name: "GINSOPLEA GREEN BRIGHT",
-    color: [
-    "grey"
-    ],
-    price: 66,
-    manufacturer: "umpante"
-    },
-    {
-    id: "deb9bead9c0ee43d0a7c5d",
-    type: "beanies",
-    name: "AKSOPNY MAGIC ALPINE",
-    color: [
-    "black"
-    ],
-    price: 13,
-    manufacturer: "umpante"
-    },
-  ]
-
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
-})
+const axios = require('axios')
 
 app.get('/api/beanies', (req, res) => {
-  res.json(beanies)
+  const beanies = 
+  axios
+    .get('https://bad-api-assignment.reaktor.com/v2/products/beanies')
+    .then(response => {
+      res.send(response.data)
+    })
 })
 
 app.get('/api/facemasks', (req, res) => {
-  res.send('<h1>Facemasks</h1>')
+  const facemasks = 
+  axios
+    .get('https://bad-api-assignment.reaktor.com/v2/products/facemasks')
+    .then(response => {
+      res.send(response.data)
+    })
 })
 
 app.get('/api/gloves', (req, res) => {
-  res.send('<h1>Gloves</h1>')
+  const gloves = 
+  axios
+    .get('https://bad-api-assignment.reaktor.com/v2/products/gloves')
+    .then(response => {
+      res.send(response.data)
+    })
 })
 
 const PORT = 3001

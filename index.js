@@ -1,8 +1,12 @@
 const express = require('express')
+const app = express()
 const cors = require('cors')
 const axios = require('axios')
-const app = express()
-app.use(cors)
+app.use(cors())
+
+app.get('/', (req, res) => {
+  res.send('<h1>Hello!</h1>');
+})
 
 app.get('/api/products/:category', (req, res) => {
   const category = req.params.category;

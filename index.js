@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const axios = require('axios')
 app.use(cors())
+app.use(express.static('build'))
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello!</h1>');

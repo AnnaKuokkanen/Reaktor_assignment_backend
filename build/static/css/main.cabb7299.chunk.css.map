@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACI,gBAAiB,CACjB,wBACJ,CAEA,MACI,WACJ","file":"main.cabb7299.chunk.css","sourcesContent":["body { \n    padding-top: 65px; \n    background-color: #FAFAFA;\n}\n\n.link {\n    padding: 5px;\n}"]}

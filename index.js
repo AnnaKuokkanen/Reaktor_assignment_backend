@@ -6,25 +6,25 @@ app.use(cors())
 app.use(express.static('build'))
 
 app.get('/api/products/:category', (req, res) => {
-  const category = req.params.category;
+  const category = req.params.category
   axios
     .get(`https://bad-api-assignment.reaktor.com/v2/products/${category}`)
     .then(response => {
-      res.send(response.data);
+      res.send(response.data)
     })
 })
 
 app.get('/api/availability/:manufacturer', (req, res) => {
-  const manufacturer = req.params.manufacturer;
+  const manufacturer = req.params.manufacturer
   axios
     .get(`https://bad-api-assignment.reaktor.com/v2/availability/${manufacturer}`)
     .then(response => {
-      res.send(response.data);
+      res.send(response.data)
     })
 })
 
-const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
+const unknownEndpoint = (req, res) => {
+  res.status(404).send({ error: 'unknown endpoint' })
 }
 
 app.use(unknownEndpoint)

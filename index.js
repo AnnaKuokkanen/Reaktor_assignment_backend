@@ -24,7 +24,11 @@ app.get('/api/availability/:manufacturer', (req, res) => {
 })
 
 const unknownEndpoint = (req, res) => {
-  res.status(404).send({ error: 'unknown endpoint' })
+  if (process.env.PORT === undefined) {
+    res.status(404).send({ error: 'unknown endpoint, please return to http://localhost:3001/ and refresh page' })
+  } else {
+    res.status(404).send({ error: 'unknown endpoint, please return to https://shrouded-eyrie-21523.herokuapp.com/ and refresh page' })
+  }
 }
 
 app.use(unknownEndpoint)
